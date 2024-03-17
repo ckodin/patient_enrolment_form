@@ -1,0 +1,19 @@
+[server]
+fileWatcherType = "none"
+runOnSave = false
+enableStaticServing = true
+
+
+[theme]
+base = "light"
+primaryColor = "#0f3689"
+textColor = "#334569"
+
+
+[client]
+showErrorDetails = false
+toolbarMode = "viewer"
+
+
+[ui]
+hideSidebarNav = true
