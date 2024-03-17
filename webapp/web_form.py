@@ -43,8 +43,9 @@ def send_enrolment_request(body):
                         verify=False)
 
       response_status_code = response.status_code
+      response_body = response.text
 
-      return response_status_code
+      return response_status_code, response_body
 
 
 def main(): 
@@ -67,12 +68,12 @@ def main():
                     print("Enrolment process")
                     request_body = form_enrolment_request(first_name, phone_mobile, hospital, ward, unit, hhs, peer_group)
                     print("Request body formed")
-                    response_status = send_enrolment_request(request_body)
+                    response_status, response_body = send_enrolment_request(request_body)
                     print("Enrolment request sent")
                     if response_status == 200: 
                         st.success("Patient successfully enrolled.")
                     else: 
-                        st.error("An error occurred.")
+                        st.error(f"An error occurred.{str(response_body)}")
                 except Exception as e:
                     st.error(f"An error occurred: {str(e)}")
 
